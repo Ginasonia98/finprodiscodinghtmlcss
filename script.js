@@ -27,7 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
     { nama: "The Le Hu Garden", gambar: "asset/img/le-hu-garden.jpg" },
     { nama: "Danau Siombak", gambar: "asset/img/danau-siombak.jpg" },
     { nama: "Pantai Cermin", gambar: "asset/img/pantai-cermin.jpeg" },
-    { nama: "Jembatan Titi Gantung", gambar: "asset/img/jembatantitigantung.jpg" },
+    {
+      nama: "Jembatan Titi Gantung",
+      gambar: "asset/img/jembatantitigantung.jpg",
+    },
   ];
 
   const daftarWisata = document.getElementById("daftar-wisata");
@@ -77,26 +80,51 @@ Perkembangan industri perkebunan inilah yang menjadikan Medan sebagai kota moder
   });
 
   const sliderImages = [
-    "/mnt/data/b00a1c8b-75ce-4822-9399-eb3738f5d398.png",
-    "/mnt/data/9bd49c3b-10c3-4313-bb14-65674e2bb459.jpg",
-    "/mnt/data/967a18e0-4240-4b5e-af1f-e5fe0e35e35e.png",
+    { nama: "Lemang", gambar: "asset/img/lemang-medan.jpg" },
+    { nama: "Soto Medan", gambar: "asset/img/soto-medan.jpg" },
+    { nama: "Lontong Medan", gambar: "asset/img/lontong-medan.jpeg" },
+    { nama: "Mie Gomak", gambar: "asset/img/mie-gomak.jpg" },
+    { nama: "Mie Rebus", gambar: "asset/img/mie-rebus.jpg" },
+    { nama: "Bika Ambon", gambar: "asset/img/bika-ambon.jpg" },
+    { nama: "Bolu Meranti", gambar: "asset/img/bolu-meranti.jpg" },
+    { nama: "Lapis Legit", gambar: "asset/img/lapis-legit.jpg" },
   ];
+
   let currentImageIndex = 0;
   const sliderImg = document.getElementById("slider-img");
+  const sliderCaption = document.getElementById("slider-caption");
+  const nextBtn = document.getElementById("next-btn");
+  const prevBtn = document.getElementById("prev-btn");
 
-  setInterval(() => {
+  function updateSlider() {
+    const { nama, gambar } = sliderImages[currentImageIndex];
+    sliderImg.src = gambar;
+    sliderCaption.textContent = nama;
+  }
+
+  nextBtn.addEventListener("click", function () {
     currentImageIndex = (currentImageIndex + 1) % sliderImages.length;
-    sliderImg.src = sliderImages[currentImageIndex];
-  }, 3000);
+    updateSlider();
+  });
+
+  prevBtn.addEventListener("click", function () {
+    currentImageIndex =
+      (currentImageIndex - 1 + sliderImages.length) % sliderImages.length;
+    updateSlider();
+  });
+
+  updateSlider();
 
   const dropbtn = document.querySelector(".dropbtn");
   const dropdownContent = document.getElementById("dropdown-content");
+
   dropbtn.addEventListener("click", function (e) {
     e.stopPropagation();
     dropdownContent.style.display =
       dropdownContent.style.display === "block" ? "none" : "block";
   });
 
+  // Menutup dropdown saat klik di luar
   document.addEventListener("click", function () {
     dropdownContent.style.display = "none";
   });
