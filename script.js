@@ -1,25 +1,57 @@
 document.addEventListener("DOMContentLoaded", function () {
   const tempatWisata = [
-    "Danau Toba",
-    "Kampung Keling",
-    "Bukit Lawang",
-    "Rahmat International Wildlife Museum & Gallery",
-    "Istana Maimun",
-    "Graha Bunda Maria Annai Velengkanni",
-    "Penangkaran Buaya Asam Kumbang",
-    "Maha Vihara Maitreya",
-    "Tjong Yong Hian Gallery",
-    "Taman Edukasi Avros",
-    "Air Terjun Sipiso Piso",
-    "Kampung Ladang Outbound",
-    "The Le Hu Garden",
-    "Danau Siombak",
+    { nama: "Danau Toba", gambar: "asset/img/Danau-Toba.jpeg" },
+    { nama: "Kampung Keling", gambar: "asset/img/kampung-keling.jpg" },
+    { nama: "Bukit Lawang", gambar: "asset/img/bukit-lawang.jpg" },
+    {
+      nama: "Rahmat International Wildlife Museum & Gallery",
+      gambar: "asset/img/rahmat-museum.jpg",
+    },
+    { nama: "Istana Maimun", gambar: "asset/img/istana-maimun.jpg" },
+    {
+      nama: "Graha Bunda Maria Annai Velengkanni",
+      gambar: "asset/img/graha-maria.jpg",
+    },
+    {
+      nama: "Penangkaran Buaya Asam Kumbang",
+      gambar: "asset/img/penangkaran-buaya.jpeg",
+    },
+    { nama: "Maha Vihara Maitreya", gambar: "asset/img/maitreya.jpeg" },
+    {
+      nama: "Tjong Yong Hian Gallery",
+      gambar: "asset/img/tjong-yong-hian.jpg",
+    },
+    { nama: "Taman Edukasi Avros", gambar: "asset/img/avros.jpg" },
+    { nama: "Air Terjun Sipiso Piso", gambar: "asset/img/sipiso-piso.jpeg" },
+    { nama: "Kampung Ladang Outbound", gambar: "asset/img/kampung-ladang.jpg" },
+    { nama: "The Le Hu Garden", gambar: "asset/img/le-hu-garden.jpg" },
+    { nama: "Danau Siombak", gambar: "asset/img/danau-siombak.jpg" },
+    { nama: "Pantai Cermin", gambar: "asset/img/pantai-cermin.jpeg" },
+    { nama: "Jembatan Titi Gantung", gambar: "asset/img/jembatantitigantung.jpg" },
   ];
 
   const daftarWisata = document.getElementById("daftar-wisata");
   tempatWisata.forEach((tempat) => {
     const li = document.createElement("li");
-    li.textContent = tempat;
+
+    const nama = document.createElement("p");
+    nama.textContent = tempat.nama;
+    nama.style.fontWeight = "bold";
+    nama.style.textAlign = "center";
+    nama.style.textDecoration = "underline";
+
+    const img = document.createElement("img");
+    img.src = tempat.gambar;
+    img.alt = tempat.nama;
+    img.style.width = "300px";
+    img.style.height = "200px"; // Tetapkan tinggi tetap
+    img.style.objectFit = "cover"; // Potong gambar agar pas ke dalam kotak
+    img.style.display = "block";
+    img.style.marginBottom = "15px";
+    img.style.borderRadius = "8px"; // (Opsional) sudut membulat
+
+    li.appendChild(nama);
+    li.appendChild(img);
     daftarWisata.appendChild(li);
   });
 
