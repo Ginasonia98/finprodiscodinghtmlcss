@@ -47,11 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
     img.src = tempat.gambar;
     img.alt = tempat.nama;
     img.style.width = "300px";
-    img.style.height = "200px"; // Tetapkan tinggi tetap
-    img.style.objectFit = "cover"; // Potong gambar agar pas ke dalam kotak
+    img.style.height = "200px"; 
+    img.style.objectFit = "cover"; 
     img.style.display = "block";
     img.style.marginBottom = "15px";
-    img.style.borderRadius = "8px"; // (Opsional) sudut membulat
+    img.style.borderRadius = "8px"; 
 
     li.appendChild(nama);
     li.appendChild(img);
@@ -124,7 +124,6 @@ Perkembangan industri perkebunan inilah yang menjadikan Medan sebagai kota moder
       dropdownContent.style.display === "block" ? "none" : "block";
   });
 
-  // Menutup dropdown saat klik di luar
   document.addEventListener("click", function () {
     dropdownContent.style.display = "none";
   });

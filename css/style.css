@@ -30,9 +30,7 @@ header {
   top: 0;
   z-index: 1000;
   width: 100%;
-  /* Ini penting */
   box-sizing: border-box;
-  /* Tambahan supaya padding tidak bikin overflow */
 }
 
 
@@ -127,10 +125,10 @@ header h1 {
   max-width: 70%;
 }
 
-article {
+/* article {
   flex: 2;
   min-width: 300px;
-}
+} */
 
 aside {
   aside {
@@ -258,7 +256,7 @@ section {
 }
 
 .slider-buttons button:hover {
-  background-color: #45a049;
+  background-color: #5dade2;
 }
 
 
